@@ -1,0 +1,22 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The paper proposes a novel neural machine translation model that \strokec2 jointly learns to align and translate\strokec2 , introducing a form of \strokec2 attention mechanism\strokec2 .\
+Traditional encoder\'96decoder models compress the entire source sentence into a \strokec2 fixed-length vector\strokec2 , which limits their performance, especially on long sentences.\
+The proposed model, named \strokec2 RNNsearch\strokec2 , addresses this by using a \strokec2 dynamic context vector\strokec2  that changes at each decoding step based on the target word being generated.\
+This context vector is calculated as a \strokec2 weighted sum of annotations\strokec2  (hidden states) from a \strokec2 bidirectional RNN encoder\strokec2 , capturing information from both past and future source words.\
+The \strokec2 alignment model\strokec2  is implemented as a feedforward neural network that assigns weights (\strokec2 \uc0\u945 \u8342 \strokec2 ) to each source annotation depending on its relevance to the current decoding state.\
+Unlike hard alignments, this method learns \strokec2 soft alignments\strokec2 , allowing gradient-based training across the entire model and enabling the decoder to focus on different parts of the input when generating each target word.\
+This attention-based mechanism frees the model from having to memorize the entire sentence in one vector, making it \strokec2 more effective for long sequences\strokec2 .\
+The \strokec2 decoder RNN\strokec2  uses the previous target word, its hidden state, and the context vector to generate each word in the translation, enabling \strokec2 target-side conditioning\strokec2 .\
+Quantitatively, \strokec2 RNNsearch significantly outperforms\strokec2  the baseline encoder\'96decoder model (RNNencdec) in BLEU score, particularly on longer sentences.\
+In qualitative evaluations, the \strokec2 soft-alignment maps\strokec2  learned by the model showed \strokec2 linguistically plausible correspondences\strokec2  between source and target words.\
+The model achieved translation performance \strokec2 comparable to the state-of-the-art phrase-based system\strokec2 , despite being a purely neural, end-to-end architecture.\
+This work is foundational, as it introduced the \strokec2 attention mechanism\strokec2  that later became standard in neural sequence-to-sequence tasks.\
+}
